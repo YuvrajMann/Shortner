@@ -10,6 +10,7 @@ function validURL(str) {
   ); // fragment locator
   return !!pattern.test(str);
 }
+
 function appendElements(){
     $('.mapList').empty();
     chrome.storage.sync.get("maps", function (items) {
@@ -32,11 +33,29 @@ function appendElements(){
                     <td>${idx}</td>
                     <td>${val}</td>
                     <td>${key}</td>
-                    <td><button id="del_btn">Delete</button></td>
+                    <td><button id="del_btn" class=${key}>Delete</button></td>
                     </tr>`
                 )
             }
             idx++;
+        }
+        let btns=$(".mapList #del_btn");
+        console.log(btns);
+        for(let i=0;i<btns.length;++i){
+          let clName=btns[i].className;
+          $(`.${clName}`).click(()=>{
+            console.log(clName);
+            if(confirm('Are you sure you want to delete')){
+              chrome.storage.sync.get("maps", function (items) {
+                let obj=items.maps;
+                delete obj[clName];
+                chrome.storage.sync.set({maps:obj},()=>{
+                  appendElements();
+                  console.log('Updated Successfully');
+                });
+            })
+            }
+          });
         }
     })  
    
@@ -66,4 +85,6 @@ $(document).ready(function () {
       alert("Please give a valid url");
     }
   });
+  
+
 });
