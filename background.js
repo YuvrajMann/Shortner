@@ -6,6 +6,11 @@ chrome.runtime.onInstalled.addListener(()=>{
       obj=items.maps;
   })
 });
+chrome.storage.onChanged.addListener(()=>{
+  chrome.storage.sync.get("maps", function (items) {
+      obj=items.maps;
+  })
+});
 chrome.webRequest.onBeforeRequest.addListener(
     function(details) {
       console.log(details);
