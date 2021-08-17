@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>
+            Shortner
+        </title>
+        <link rel="stylesheet" href="main.css">
+    </head>
     <body>
-        Shortner
+        <div class="map_header">
+            <img width="30px"
+            height="30px" src="./assests/url.png">
+            <h2>Mapper</h2>
+        </div>
+        <form class="shortForm">
+            <input id="full_url" type="text" name="fullUrl" placeholder="URL"></input>
+            <button type="submit" id="sub_btn">Shrink</button>
+        </form>
+        <div class="shortened_url">
+        </div>
     </body>
+    <script src="./jquery.js"></script>
+    <script src="./shortner.js"></script>
 </html>

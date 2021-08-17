@@ -186,3 +186,34 @@ button#del_btn{
     border-radius: 5px;
     font-weight: 700;
 }
+#sub_btn{
+    border-radius: 5px;
+    padding:8px;
+    cursor: pointer;
+    background-color: var(--baseBlue);
+    color: white;
+    font-weight: 600;
+    border:0px;
+}
+#full_url{
+    padding: 10px;
+    padding-left: 15px;
+    margin-right: 5px;
+    border-radius: 6px;
+    outline: none;
+    border:0px;
+    background-color: var(--smoke);
+    width: 400px;
+}
+#full_url:focus{
+    box-shadow: 0px 0px 1px 1px #0066ff2c;
+}
+.shortForm{
+    text-align: center;
+    margin-top: 40px;
+}
+.shortened_url{
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 30px;
+}

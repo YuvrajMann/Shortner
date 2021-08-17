@@ -85,6 +85,4 @@ $(document).ready(function () {
       alert("Please give a valid url");
     }
   });
-  
-
 });
